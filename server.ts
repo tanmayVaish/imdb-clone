@@ -1,11 +1,15 @@
 import express from 'express';
+import authRouter from './routes/auth'
+import cookieParser from 'cookie-parser';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.use("/", authRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
