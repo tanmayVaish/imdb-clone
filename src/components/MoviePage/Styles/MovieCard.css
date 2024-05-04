@@ -1,0 +1,8 @@
+.moviecard {
+    /* border: 1px solid black; */
+    /* height: 400px; */
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
